@@ -540,10 +540,10 @@ function renderEntryList(listId,arr,type){
   el.innerHTML=arr.map((entry,i)=>{
     if(type==='skill'){
       const pc=entry.p==='Expert'?'prof-expert':entry.p==='Basic'?'prof-basic':'prof-proficient';
-      return'<div class="entry-pill '+pc+'"><div class="entry-pill-left"><span class="entry-pill-name">'+entry.n+'</span><span class="entry-pill-meta">'+entry.p+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
+      return'<div class="entry-pill '+pc+'"><div class="entry-pill-left"><span class="entry-pill-name">'+(entry.name||entry.n||'')+'</span><span class="entry-pill-meta">'+(entry.prof||entry.p||'')+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
     } else {
-      const parts=[entry.type,entry.school,entry.field].filter(Boolean).join(' · ');
-      return'<div class="entry-pill" style="border-left:3px solid #7c3aed"><div class="entry-pill-left"><span class="entry-pill-name">'+entry.school+'</span><span class="entry-pill-meta">'+[entry.type,entry.field].filter(Boolean).join(' · ')+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
+      const es=entry.school||entry.s||'';const et=entry.type||entry.t||'';const ef=entry.field||entry.f||'';
+      return'<div class="entry-pill" style="border-left:3px solid #7c3aed"><div class="entry-pill-left"><span class="entry-pill-name">'+es+'</span><span class="entry-pill-meta">'+[et,ef].filter(Boolean).join(' · ')+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
     }
   }).join('');
 }
@@ -562,7 +562,7 @@ function addSkillEntry(prefix){
   const name=nameEl.value.trim();
   if(!name)return;
   const arr=window['_'+prefix+'Skills'];
-  arr.push({n:name,p:profEl.value});
+  arr.push({name:name,prof:profEl.value});
   nameEl.value='';
   renderEntryList(prefix+'-skill-list',arr,'skill');
   nameEl.focus();
@@ -576,7 +576,7 @@ function addEduEntry(prefix){
   const school=schoolEl.value.trim();
   if(!school)return;
   const arr=window['_'+prefix+'Edu'];
-  arr.push({t:typeEl?typeEl.value:'',s:school,f:fieldEl?fieldEl.value.trim():''});
+  arr.push({type:typeEl?typeEl.value:'',school:school,field:fieldEl?fieldEl.value.trim():''});
   if(typeEl)typeEl.value='';
   schoolEl.value='';
   if(fieldEl)fieldEl.value='';
