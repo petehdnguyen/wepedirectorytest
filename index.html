@@ -231,9 +231,10 @@ const iv=ini(p.first,p.last);
 const[bg,fg]=avc(p.first+p.last);
 const skillArr=p.skills||[];
 const st=skillArr.slice(0,4).map(s=>{
-  if(typeof s==='object'&&s.n){
-    const pc=s.p==='Expert'?'tag-skill-expert':s.p==='Basic'?'tag-skill-basic':'tag-skill-proficient';
-    return'<span class="tag '+pc+'" title="'+s.p+'">'+s.n+'</span>';
+  if(typeof s==='object'){
+    const sn=s.n||s.name||'';const sp=s.p||s.prof||'Proficient';
+    const pc=sp==='Expert'?'tag-skill-expert':sp==='Basic'?'tag-skill-basic':'tag-skill-proficient';
+    return'<span class="tag '+pc+'" title="'+sp+'">'+sn+'</span>';
   }
   return'<span class="tag tag-skill">'+s+'</span>';
 }).join('');
@@ -365,7 +366,7 @@ const data=loadData();
 const map={};
 data.forEach((p,idx)=>{
 if(deptFilter&&p.dept!==deptFilter)return;
-(p.skills||[]).forEach(s=>{const k=typeof s==='object'?s.n:s.trim();if(!map[k])map[k]=[];map[k].push({...p,_idx:idx});});
+(p.skills||[]).forEach(s=>{const k=typeof s==='object'?(s.n||s.name||''):s.trim();if(!map[k])map[k]=[];map[k].push({...p,_idx:idx});});
 });
 return map;
 }
@@ -397,7 +398,7 @@ document.querySelectorAll('.skill-item').forEach(el=>el.classList.toggle('active
 function renderSkillResults(skill,people){
 const pane=document.getElementById('skills-results-pane');
 if(!people.length){pane.innerHTML='<div class="skills-empty"><p>No one found with "'+skill+'"</p></div>';return;}
-const cards=people.map(p=>{const[bg,fg]=avc(p.first+p.last);const other=(p.skills||[]).map(s=>typeof s==='object'?s.n:s).filter(s=>s!==skill).slice(0,4);return'<div class="person-mini-card" onclick="openProfile('+p._idx+')" style="cursor:pointer"><div class="mini-card-header"><div class="mini-avatar" style="background:'+bg+';color:'+fg+'">'+ini(p.first,p.last)+'</div><div><div class="mini-name">'+p.first+' '+p.last+'</div><div class="mini-role">'+p.role+'</div></div></div><div class="mini-dept">'+p.dept+(p.city?' · '+p.city:'')+'</div>'+(other.length?'<div class="other-skills">'+other.map(s=>'<span class="other-skill-tag">'+s+'</span>').join('')+'</div>':'')+'</div>';}).join('');
+const cards=people.map(p=>{const[bg,fg]=avc(p.first+p.last);const other=(p.skills||[]).map(s=>typeof s==='object'?(s.n||s.name||s):s).filter(s=>s!==skill).slice(0,4);return'<div class="person-mini-card" onclick="openProfile('+p._idx+')" style="cursor:pointer"><div class="mini-card-header"><div class="mini-avatar" style="background:'+bg+';color:'+fg+'">'+ini(p.first,p.last)+'</div><div><div class="mini-name">'+p.first+' '+p.last+'</div><div class="mini-role">'+p.role+'</div></div></div><div class="mini-dept">'+p.dept+(p.city?' · '+p.city:'')+'</div>'+(other.length?'<div class="other-skills">'+other.map(s=>'<span class="other-skill-tag">'+s+'</span>').join('')+'</div>':'')+'</div>';}).join('');
 pane.innerHTML='<div class="skills-results-header"><div><div class="skills-results-title">People with <span>"'+skill+'"</span></div><div class="skills-results-sub">'+people.length+' '+(people.length===1?'person':'people')+'</div></div><button class="skills-back-btn" onclick="clearSkillSelection()">← All skills</button></div><div class="people-mini-grid">'+cards+'</div>';
 }
 function clearSkillSelection(){activeSkill=null;document.getElementById('skills-results-pane').innerHTML='<div class="skills-empty"><p>Select a skill to see who has it</p><span>Choose from the list on the left.</span></div>';document.querySelectorAll('.skill-item').forEach(el=>el.classList.remove('active'));}
@@ -603,8 +604,8 @@ function openProfile(idx){
   const profBadge=lv=>lv==='Expert'?'prof-badge-expert':lv==='Basic'?'prof-badge-basic':'prof-badge-proficient';
   const eduIcon=t=>t&&t.includes('PhD')?'🎓':t&&(t.includes('MS')||t.includes("Master"))?' 🎓':t&&t.includes('Cert')?'📜':t&&t.includes('Lic')?'📋':'🎓';
   const skillRows=skills.map(s=>{
-    const name=typeof s==='object'?(s.n||s.name):s;
-    const prof=typeof s==='object'?(s.p||s.prof):'Proficient';
+    const name=typeof s==='object'?(s.n||s.name||''):s;
+    const prof=typeof s==='object'?(s.p||s.prof||'Proficient'):'Proficient';
     return'<div class="profile-skill-row"><span class="profile-skill-name">'+name+'</span><span class="prof-badge '+profBadge(prof)+'">'+prof+'</span></div>';
   }).join('');
   const eduRows=edu.map(e=>{
