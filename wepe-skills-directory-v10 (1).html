@@ -1,0 +1,638 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WEPE Skills Directory</title><style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f4f6f9;color:#1a1a2e;font-size:14px;line-height:1.5;min-height:100vh}.header{background:#fff;border-bottom:3px solid #F5C400;padding:14px 28px;display:flex;align-items:center;gap:14px}.logo-svg{height:44px;width:auto}.header-info h1{font-size:20px;font-weight:800;letter-spacing:-.5px}.we{color:#1a2744}.pe{color:#3383C8}.header-info p{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#999;margin-top:1px}.main{padding:22px 28px}.tabs{display:flex;margin-bottom:22px;border-bottom:2px solid #e0e4ea}.tab{padding:9px 20px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:#888;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s;font-family:inherit}.tab.active{color:#3383C8;border-bottom-color:#3383C8}.tab:hover:not(.active){color:#444}.tab-admin{margin-left:auto;color:#9ca3af;font-size:12px}.tab-admin.active{color:#dc2626;border-bottom-color:#dc2626}.admin-result-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1.5px solid #e0e4ea;border-radius:8px;margin-bottom:8px;background:#fff;cursor:pointer;transition:all .15s}.admin-result-row:hover{border-color:#3383C8;background:#f4f9ff}.admin-result-row.selected{border-color:#dc2626;background:#fff5f5}.admin-result-info{font-size:13px;color:#1a2744}.admin-result-name{font-weight:600}.admin-result-meta{font-size:11px;color:#888;margin-top:2px}.admin-select-btn{font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;border:1.5px solid #d1d8e0;background:#fff;color:#555;cursor:pointer;font-family:inherit;transition:all .15s}.admin-result-row.selected .admin-select-btn{border-color:#dc2626;color:#dc2626;background:#fff5f5}.log-entry{padding:10px 14px;border-left:3px solid #dc2626;background:#fff5f5;border-radius:0 8px 8px 0;margin-bottom:8px;font-size:12px;color:#1a2744}.log-entry-name{font-weight:600;margin-bottom:2px}.log-entry-meta{color:#888}.panel{display:none}.panel.active{display:block}.stats-bar{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}.stat-pill{background:#fff;border:1px solid #e0e4ea;border-radius:20px;padding:5px 14px;font-size:12px;color:#555;display:flex;align-items:center;gap:6px}.stat-pill strong{color:#1a2744;font-size:14px}.search-bar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}.search-bar input,.search-bar select{border:1.5px solid #d1d8e0;border-radius:8px;padding:8px 12px;font-size:13px;font-family:inherit;background:#fff;color:#1a2744;outline:none;transition:border-color .15s}.search-bar input{flex:1;min-width:180px}.search-bar select{min-width:155px}.search-bar input:focus,.search-bar select:focus{border-color:#3383C8}.directory-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.person-card{background:#fff;border:1px solid #e0e4ea;border-top:3px solid #3383C8;border-radius:10px;padding:14px;transition:box-shadow .15s,transform .1s}.person-card:hover{box-shadow:0 4px 16px rgba(51,131,200,.12);transform:translateY(-1px)}.card-header{display:flex;align-items:center;gap:10px;margin-bottom:9px}.avatar{width:36px;height:36px;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}.card-name{font-weight:600;font-size:13px;color:#1a2744;line-height:1.2}.card-role{font-size:11px;color:#3383C8;font-weight:500;margin-top:1px}.card-dept{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#aab;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #f0f2f5}.card-meta{font-size:11px;color:#888;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}.card-meta span{display:flex;align-items:center;gap:3px}.tag-row{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}.tag{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:600}.tag-skill{background:#e8f3fc;color:#1d5fa0}.tag-interest{background:#fff8e1;color:#8a6000}.tag-open{background:#edf7ed;color:#2d6a2d}.tag-edu{background:#f3e8ff;color:#7c3aed}.tag-label{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:#bbb;margin-bottom:3px;margin-top:6px}.pagination{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:24px;flex-wrap:wrap}.page-btn{border:1.5px solid #d1d8e0;background:#fff;border-radius:7px;padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit;color:#555;transition:all .15s}.page-btn:hover{border-color:#3383C8;color:#3383C8}.page-btn.active{background:#3383C8;color:#fff;border-color:#3383C8;font-weight:600}.page-btn:disabled{opacity:.35;cursor:not-allowed}.page-info{font-size:12px;color:#888;margin:0 6px}.form-card{background:#fff;border:1px solid #e0e4ea;border-top:3px solid #F5C400;border-radius:10px;padding:24px;max-width:600px}.form-card h2{font-size:15px;font-weight:700;color:#1a2744;margin-bottom:4px}.form-desc{font-size:13px;color:#888;margin-bottom:20px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-group{display:flex;flex-direction:column;gap:4px}.form-group.full{grid-column:1/-1}.form-group.third{grid-column:span 1}label{font-size:11px;font-weight:700;color:#1a2744;text-transform:uppercase;letter-spacing:.06em}.form-group input,.form-group select,.form-group textarea{border:1.5px solid #d1d8e0;border-radius:8px;padding:8px 11px;font-size:13px;font-family:inherit;color:#1a2744;background:#fff;outline:none;transition:border-color .15s;width:100%}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#3383C8}.hint{font-size:11px;color:#aaa;margin-top:2px}.open-checkboxes{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}.open-checkbox-label{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#374151;background:#f4f6f9;border:1.5px solid #d1d8e0;border-radius:7px;padding:6px 11px;cursor:pointer;transition:all .15s;user-select:none}.open-checkbox-label input{display:none}.open-checkbox-label.checked{background:#e8f3fc;border-color:#3383C8;color:#1d5fa0}.open-checkbox-label:hover{border-color:#3383C8}.submit-btn{margin-top:18px;padding:10px 26px;background:#3383C8;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}.submit-btn:hover{background:#2266a8}.success-msg{display:none;background:#edf7ed;border:1px solid #b7dfb7;border-radius:8px;padding:11px 15px;color:#2d6a2d;font-size:13px;margin-top:14px;font-weight:500}.success-msg.show{display:block}.error-msg{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:11px 15px;color:#b91c1c;font-size:13px;margin-top:14px;font-weight:500}.error-msg.show{display:block}.count-badge{background:#e8f3fc;color:#1d5fa0;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;margin-left:6px;vertical-align:middle}.empty-state{text-align:center;padding:52px 24px;color:#aaa;grid-column:1/-1}.empty-state p{font-size:15px;color:#888;margin-bottom:4px}.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:center;justify-content:center}.modal-overlay.show{display:flex}.modal{background:#fff;border-radius:12px;padding:28px;width:92%;max-width:560px;max-height:90vh;overflow-y:auto;position:relative}.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#888;line-height:1}.modal-close:hover{color:#1a2744}.modal h2{font-size:16px;font-weight:700;color:#1a2744;margin-bottom:5px}.modal-sub{font-size:13px;color:#888;margin-bottom:20px}.pin-boxes{display:flex;gap:10px;margin:16px 0}.pin-box{width:52px;height:56px;border:2px solid #d1d8e0;border-radius:10px;text-align:center;font-size:22px;font-weight:700;color:#1a2744;outline:none;font-family:inherit;transition:border-color .15s}.pin-box:focus{border-color:#3383C8}.modal-btn-row{display:flex;gap:10px;margin-top:6px}.modal-btn{padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;border:none;transition:background .15s}.modal-btn.primary{background:#3383C8;color:#fff}.modal-btn.primary:hover{background:#2266a8}.modal-btn.secondary{background:#f0f2f5;color:#555}.modal-btn.secondary:hover{background:#e0e4ea}.skills-browser{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}.skills-panel{background:#fff;border:1px solid #e0e4ea;border-radius:10px;overflow:hidden}.skills-panel-header{padding:14px 16px 10px;border-bottom:1px solid #f0f2f5}.skills-panel-header h3{font-size:13px;font-weight:700;color:#1a2744;margin-bottom:8px}.skills-search{width:100%;border:1.5px solid #d1d8e0;border-radius:7px;padding:7px 11px;font-size:12px;font-family:inherit;color:#1a2744;outline:none}.skills-search:focus{border-color:#3383C8}.skills-dept-filter{width:100%;border:1.5px solid #d1d8e0;border-radius:7px;padding:7px 11px;font-size:12px;font-family:inherit;color:#1a2744;outline:none;margin-top:7px;background:#fff}.skills-dept-filter:focus{border-color:#3383C8}.skills-list{max-height:520px;overflow-y:auto;padding:8px 0}.skill-item{display:flex;align-items:center;justify-content:space-between;padding:8px 16px;cursor:pointer;transition:background .12s;border-left:3px solid transparent}.skill-item:hover{background:#f4f6f9}.skill-item.active{background:#e8f3fc;border-left-color:#3383C8}.skill-item-name{font-size:13px;color:#1a2744;font-weight:500}.skill-item.active .skill-item-name{color:#1d5fa0}.skill-count{font-size:11px;font-weight:700;background:#f0f2f5;color:#888;padding:2px 8px;border-radius:20px}.skill-item.active .skill-count{background:#3383C8;color:#fff}.skills-results{min-height:200px}.skills-results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}.skills-results-title{font-size:15px;font-weight:700;color:#1a2744}.skills-results-title span{color:#3383C8}.skills-results-sub{font-size:12px;color:#888}.skills-back-btn{background:none;border:1.5px solid #d1d8e0;border-radius:7px;padding:5px 13px;font-size:12px;font-weight:600;color:#666;cursor:pointer;font-family:inherit;transition:all .15s}.skills-back-btn:hover{border-color:#3383C8;color:#3383C8}.skills-empty{text-align:center;padding:60px 24px;color:#bbb}.skills-empty p{font-size:15px;color:#888;margin-bottom:6px;font-weight:500}.people-mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}.person-mini-card{background:#fff;border:1px solid #e0e4ea;border-left:3px solid #F5C400;border-radius:8px;padding:12px 14px}.mini-card-header{display:flex;align-items:center;gap:9px;margin-bottom:6px}.mini-avatar{width:32px;height:32px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}.mini-name{font-weight:600;font-size:13px;color:#1a2744;line-height:1.2}.mini-role{font-size:11px;color:#3383C8;font-weight:500}.mini-dept{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#aab;margin-top:4px}.other-skills{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}.other-skill-tag{font-size:10px;font-weight:600;background:#f4f6f9;color:#666;padding:2px 7px;border-radius:20px}.profile-modal{max-width:640px}.profile-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #f0f2f5}.profile-avatar{width:60px;height:60px;border-radius:50%;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}.profile-name{font-size:20px;font-weight:800;color:#1a2744;line-height:1.2}.profile-role{font-size:13px;color:#3383C8;font-weight:600;margin-top:2px}.profile-dept{font-size:11px;color:#aab;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}.profile-meta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px}.profile-meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#666}.profile-section{margin-bottom:18px}.profile-section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#aab;margin-bottom:8px}.profile-skill-row{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:7px;background:#f4f6f9;margin-bottom:5px}.profile-skill-name{font-size:13px;font-weight:500;color:#1a2744}.prof-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.03em}.prof-badge-basic{background:#fff8e1;color:#8a6000}.prof-badge-proficient{background:#e8f3fc;color:#1d5fa0}.prof-badge-expert{background:#d1fae5;color:#065f46}.profile-edu-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px solid #f0f2f5}.profile-edu-row:last-child{border-bottom:none}.profile-edu-icon{font-size:18px;margin-top:1px}.profile-edu-info .edu-degree{font-size:13px;font-weight:600;color:#1a2744}.profile-edu-info .edu-detail{font-size:11px;color:#888;margin-top:1px}.open-to-row{display:flex;flex-wrap:wrap;gap:6px}.skill-builder{border:1.5px solid #d1d8e0;border-radius:10px;padding:12px;background:#fafbfc;margin-top:4px}.skill-builder-row{display:flex;gap:8px;align-items:flex-end;margin-bottom:8px}.skill-builder-row input{flex:2;min-width:0}.skill-builder-row select{flex:1;min-width:80px}.add-entry-btn{padding:8px 14px;background:#3383C8;color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s}.add-entry-btn:hover{background:#2266a8}.entry-list{display:flex;flex-direction:column;gap:6px}.entry-pill{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid #e0e4ea;border-radius:8px;padding:7px 10px;font-size:12px;color:#1a2744}.entry-pill-left{display:flex;flex-direction:column;gap:2px}.entry-pill-name{font-weight:600;font-size:13px}.entry-pill-meta{font-size:11px;color:#888}.entry-remove{background:none;border:none;color:#d1d8e0;font-size:16px;cursor:pointer;padding:0 2px;line-height:1;transition:color .15s}.entry-remove:hover{color:#dc2626}.prof-basic{border-left:3px solid #F5C400!important}.prof-proficient{border-left:3px solid #3383C8!important}.prof-expert{border-left:3px solid #166534!important}.tag-skill-basic{background:#fff8e1;color:#8a6000}.tag-skill-proficient{background:#e8f3fc;color:#1d5fa0}.tag-skill-expert{background:#d1fae5;color:#065f46}.edu-type-badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 5px;border-radius:4px;background:#f3e8ff;color:#7c3aed;margin-right:4px}
+</style></head><body>
+<div class="header"><svg class="logo-svg" viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg"><circle cx="38" cy="18" r="10" fill="#F5C400"/><circle cx="14" cy="54" r="12" fill="#F5C400"/><circle cx="58" cy="54" r="10" fill="#3383C8"/><circle cx="68" cy="20" r="9" fill="#3383C8"/><line x1="38" y1="28" x2="14" y2="42" stroke="#F5C400" stroke-width="7" stroke-linecap="round"/><line x1="38" y1="28" x2="58" y2="44" stroke="#F5C400" stroke-width="7" stroke-linecap="round"/><line x1="14" y1="54" x2="58" y2="54" stroke="#3383C8" stroke-width="7" stroke-linecap="round"/><line x1="68" y1="29" x2="58" y2="44" stroke="#3383C8" stroke-width="7" stroke-linecap="round"/></svg><div class="header-info"><h1><span class="we">WE</span><span class="pe">PE</span></h1><p>Skills Directory</p></div></div>
+<div class="main">
+<div class="tabs"><button class="tab active" onclick="switchTab('directory',this)">People directory <span class="count-badge" id="count-badge">0</span></button><button class="tab" onclick="switchTab('skills-browser',this)">Skills browser</button><button class="tab" onclick="switchTab('submit',this)">Add your profile</button><button class="tab" onclick="switchTab('edit-lookup',this)">Edit my profile</button><button class="tab tab-admin" onclick="switchTab('admin',this)">⚙ Admin</button></div>
+
+<div id="tab-directory" class="panel active">
+<div class="stats-bar"><div class="stat-pill"><strong id="stat-total">0</strong> people</div><div class="stat-pill"><strong id="stat-skills">0</strong> unique skills</div></div>
+<div class="search-bar"><input type="text" id="search-input" placeholder="Search name, skill, city…" oninput="renderDirectory()"><select id="dept-filter" onchange="renderDirectory()"><option value="">All departments</option></select></div>
+<div class="directory-grid" id="directory-grid"></div>
+<div class="pagination" id="pagination"></div>
+</div>
+
+<div id="tab-submit" class="panel"><div class="form-card"><h2>Add your profile</h2><p class="form-desc">Let colleagues find you by your skills and interests.</p>
+<div class="form-grid">
+<div class="form-group"><label>First name *</label><input type="text" id="f-first" placeholder="Alex"></div>
+<div class="form-group"><label>Last name *</label><input type="text" id="f-last" placeholder="Rivera"></div>
+<div class="form-group"><label>Role / title *</label><input type="text" id="f-role" placeholder="Power Systems Engineer II"></div>
+<div class="form-group"><label>Department *</label><select id="f-dept"><option value="">Select department…</option><option>Administration</option><option>Executive</option><option>Facilities</option><option>Finance &amp; Accounting</option><option>Human Resources: Learning &amp; Development</option><option>Human Resources: Operations</option><option>Human Resources: Talent Acquisition</option><option>Information Technology</option><option>Legal &amp; Risk Management</option><option>Growth &amp; Marketing</option><option>Operations &amp; Strategy</option><option>Research &amp; Development - Power Systems</option><option>Research &amp; Development - Utilities</option><option>Research &amp; Development - Energy Resources</option><option>Business Development - Energy Resources</option><option>Energy Market Analysis</option><option>Generation Interconnection</option><option>NERC Program Management</option><option>NERC Technical</option><option>Owners Engineer</option><option>System Studies</option><option>Transmission Planning Generation</option><option>Business Development - Utilities</option><option>Distribution Design</option><option>Distribution Planning</option><option>Grid Modernization</option><option>Integrated Grid Planning</option><option>Analytics &amp; Energy Programs</option><option>Transmission Planning Utilities</option><option>Software Development</option><option>Software Product</option><option>Software Data</option><option>Software G&amp;A</option><option>Software Sales</option><option>Software CloudOps</option><option>Software Customer Success</option></select></div>
+<div class="form-group"><label>City *</label><input type="text" id="f-city" placeholder="Houston, TX"></div>
+<div class="form-group"><label>Date joined</label><input type="date" id="f-joined"></div>
+<div class="form-group full"><label>Skills *</label><div class="skill-builder" id="f-skill-builder"><div class="skill-builder-row"><input type="text" id="f-skill-name" placeholder="e.g. PSS/E, Python, facilitation…"><select id="f-skill-prof"><option value="Basic">Basic</option><option value="Proficient" selected>Proficient</option><option value="Expert">Expert</option></select><button type="button" class="add-entry-btn" onclick="addSkillEntry('f')">+ Add skill</button></div><div class="entry-list" id="f-skill-list"></div></div><span class="hint" style="margin-top:6px;display:block">Add each skill one at a time</span></div>
+<div class="form-group full"><label>Education &amp; Certifications</label><div class="skill-builder" id="f-edu-builder"><div class="skill-builder-row" style="flex-wrap:wrap"><select id="f-edu-type" style="flex:1;min-width:130px"><option value="">Degree / cert type…</option><option>High School Diploma</option><option>Associate's Degree</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>Doctorate (PhD)</option><option>Professional License</option><option>Certification</option><option>Other</option></select><input type="text" id="f-edu-school" placeholder="School / institution" style="flex:2;min-width:140px"><input type="text" id="f-edu-field" placeholder="Field of study (optional)" style="flex:2;min-width:140px"><button type="button" class="add-entry-btn" onclick="addEduEntry('f')">+ Add</button></div><div class="entry-list" id="f-edu-list"></div></div></div>
+<div class="form-group full"><label>Interests</label><input type="text" id="f-interests" placeholder="grid modernization, renewable integration"><span class="hint">Topics you're passionate about</span></div>
+<div class="form-group full"><label>Open to <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#999;font-size:11px">(select all that apply)</span></label><div class="open-checkboxes" id="f-open-boxes"><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Mentoring">Mentoring</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Project collaboration">Project collaboration</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Job shadowing">Job shadowing</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Skill sharing">Skill sharing</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Speaking / presenting">Speaking / presenting</label></div></div>
+<div class="form-group full"><label>4-digit PIN *</label><input type="password" id="f-pin" placeholder="Choose a 4-digit PIN to edit your profile later" maxlength="4" pattern="[0-9]{4}" inputmode="numeric"><span class="hint">Numbers only — you'll need this PIN to edit your profile</span></div>
+</div>
+<button class="submit-btn" onclick="submitProfile()">Add me to the directory</button>
+<div class="success-msg" id="success-msg">✓ Profile added! Remember your PIN.</div>
+<div class="error-msg" id="submit-error"></div>
+</div></div>
+
+<div id="tab-edit-lookup" class="panel"><div class="form-card"><h2>Edit your profile</h2><p class="form-desc">Enter your name and PIN to find and update your profile.</p>
+<div class="form-grid">
+<div class="form-group"><label>First name *</label><input type="text" id="el-first" placeholder="Alex"></div>
+<div class="form-group"><label>Last name *</label><input type="text" id="el-last" placeholder="Rivera"></div>
+<div class="form-group full"><label>Your 4-digit PIN *</label><div class="pin-boxes"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ep0" oninput="pinMove(this,1)" onkeydown="pinBack(event,this,null)"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ep1" oninput="pinMove(this,2)" onkeydown="pinBack(event,this,0)"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ep2" oninput="pinMove(this,3)" onkeydown="pinBack(event,this,1)"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ep3" oninput="pinMove(this,null)" onkeydown="pinBack(event,this,2)"></div></div>
+</div>
+<button class="submit-btn" onclick="lookupProfile()">Find my profile</button>
+<div class="error-msg" id="lookup-error"></div>
+</div></div>
+
+<div id="tab-skills-browser" class="panel">
+<div class="skills-browser"><div class="skills-panel"><div class="skills-panel-header"><h3>All skills <span class="count-badge" id="skill-total-badge">0</span></h3><input class="skills-search" type="text" id="skill-search" placeholder="Filter skills…" oninput="renderSkillList()"><select class="skills-dept-filter" id="skill-dept-filter" onchange="renderSkillList()"><option value="">All departments</option></select></div><div class="skills-list" id="skills-list"></div></div><div class="skills-results" id="skills-results-pane"><div class="skills-empty"><p>Select a skill to see who has it</p><span>Or browse the tag cloud below</span></div></div></div>
+
+</div>
+</div>
+
+<div id="tab-admin" class="panel">
+<div id="admin-gate"><div class="form-card" style="max-width:400px"><h2>Admin access</h2><p class="form-desc">Enter the admin PIN to continue.</p><div style="margin-bottom:14px"><label>Admin PIN</label><div class="pin-boxes" style="margin:10px 0 0"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ap0" oninput="pinMove(this,'ap1')" onkeydown="pinBack(event,this,null)"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ap1" oninput="pinMove(this,'ap2')" onkeydown="pinBack(event,this,'ap0')"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ap2" oninput="pinMove(this,'ap3')" onkeydown="pinBack(event,this,'ap1')"><input class="pin-box" type="password" maxlength="1" inputmode="numeric" id="ap3" oninput="pinMove(this,null)" onkeydown="pinBack(event,this,'ap2')"></div></div><button class="submit-btn" onclick="verifyAdmin()">Enter</button><div class="error-msg" id="admin-gate-error"></div></div></div>
+<div id="admin-panel" style="display:none"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px"><div><h2 style="font-size:16px;font-weight:700;color:#1a2744;margin-bottom:3px">Admin Panel</h2><p style="font-size:13px;color:#888">Manage directory members</p></div><div style="display:flex;gap:8px"><button onclick="exportData()" style="background:#F5C400;color:#1a2744;border:none;border-radius:7px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit">⬇ Export to Excel</button><button onclick="lockAdmin()" style="background:none;border:1.5px solid #d1d8e0;border-radius:7px;padding:6px 14px;font-size:12px;font-weight:600;color:#888;cursor:pointer;font-family:inherit">Lock admin</button></div></div>
+<div class="form-card" style="max-width:700px"><h2>Remove a user</h2><p class="form-desc">Search for a member and remove them from the directory.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:16px">
+<div class="form-group"><label>First name</label><input type="text" id="rm-first" placeholder="First name" oninput="adminSearch()"></div>
+<div class="form-group"><label>Last name</label><input type="text" id="rm-last" placeholder="Last name" oninput="adminSearch()"></div>
+</div>
+<div id="admin-search-results" style="margin-bottom:16px"></div>
+<div id="admin-remove-form" style="display:none;border-top:1px solid #f0f2f5;padding-top:16px;margin-top:4px">
+<div id="admin-selected-banner" style="background:#f4f6f9;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:13px;color:#1a2744;font-weight:500"></div>
+<div class="form-group full" style="margin-bottom:14px"><label>Reason for removal</label>
+<select id="rm-reason"><option value="">Select a reason…</option><option>User no longer with company</option><option>Duplicate profile</option><option>Profile created in error</option><option>User requested removal</option><option>Other</option></select></div>
+<div class="form-group full" style="margin-bottom:18px"><label>Notes (optional)</label><input type="text" id="rm-notes" placeholder="Any additional context…"></div>
+<div style="display:flex;gap:10px">
+<button onclick="confirmRemove()" style="padding:10px 22px;background:#dc2626;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Remove from directory</button>
+<button onclick="cancelRemove()" style="padding:10px 18px;background:#f0f2f5;color:#555;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">Cancel</button>
+</div>
+<div class="success-msg" id="rm-success" style="margin-top:14px"></div>
+<div class="error-msg" id="rm-error" style="margin-top:14px"></div>
+</div></div>
+<div class="form-card" style="max-width:700px;margin-top:20px"><h2>Removal log</h2><p class="form-desc">Record of all removed profiles this session.</p><div id="admin-log"><p style="font-size:13px;color:#aaa">No removals recorded yet.</p></div></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="profile-modal"><div class="modal profile-modal"><button class="modal-close" onclick="closeModal('profile-modal')">✕</button><div id="profile-modal-content"></div></div></div>
+<div class="modal-overlay" id="edit-modal"><div class="modal"><button class="modal-close" onclick="closeModal('edit-modal')">✕</button><h2>Edit your profile</h2><p class="modal-sub">Update your details below.</p><input type="hidden" id="em-index">
+<div class="form-grid">
+<div class="form-group"><label>First name *</label><input type="text" id="em-first"></div>
+<div class="form-group"><label>Last name *</label><input type="text" id="em-last"></div>
+<div class="form-group"><label>Role / title *</label><input type="text" id="em-role"></div>
+<div class="form-group"><label>Department *</label><select id="em-dept"><option value="">Select…</option><option>Administration</option><option>Executive</option><option>Facilities</option><option>Finance &amp; Accounting</option><option>Human Resources: Learning &amp; Development</option><option>Human Resources: Operations</option><option>Human Resources: Talent Acquisition</option><option>Information Technology</option><option>Legal &amp; Risk Management</option><option>Growth &amp; Marketing</option><option>Operations &amp; Strategy</option><option>Research &amp; Development - Power Systems</option><option>Research &amp; Development - Utilities</option><option>Research &amp; Development - Energy Resources</option><option>Business Development - Energy Resources</option><option>Energy Market Analysis</option><option>Generation Interconnection</option><option>NERC Program Management</option><option>NERC Technical</option><option>Owners Engineer</option><option>System Studies</option><option>Transmission Planning Generation</option><option>Business Development - Utilities</option><option>Distribution Design</option><option>Distribution Planning</option><option>Grid Modernization</option><option>Integrated Grid Planning</option><option>Analytics &amp; Energy Programs</option><option>Transmission Planning Utilities</option><option>Software Development</option><option>Software Product</option><option>Software Data</option><option>Software G&amp;A</option><option>Software Sales</option><option>Software CloudOps</option><option>Software Customer Success</option></select></div>
+<div class="form-group"><label>City</label><input type="text" id="em-city"></div>
+<div class="form-group"><label>Date joined</label><input type="date" id="em-joined"></div>
+<div class="form-group full"><label>Skills *</label><div class="skill-builder"><div class="skill-builder-row"><input type="text" id="em-skill-name" placeholder="e.g. PSS/E, Python…"><select id="em-skill-prof"><option value="Basic">Basic</option><option value="Proficient" selected>Proficient</option><option value="Expert">Expert</option></select><button type="button" class="add-entry-btn" onclick="addSkillEntry('em')">+ Add skill</button></div><div class="entry-list" id="em-skill-list"></div></div><span class="hint" style="margin-top:6px;display:block">Add each skill one at a time</span></div>
+<div class="form-group full"><label>Education &amp; Certifications</label><div class="skill-builder"><div class="skill-builder-row" style="flex-wrap:wrap"><select id="em-edu-type" style="flex:1;min-width:130px"><option value="">Degree / cert type…</option><option>High School Diploma</option><option>Associate's Degree</option><option>Bachelor's Degree</option><option>Master's Degree</option><option>Doctorate (PhD)</option><option>Professional License</option><option>Certification</option><option>Other</option></select><input type="text" id="em-edu-school" placeholder="School / institution" style="flex:2;min-width:140px"><input type="text" id="em-edu-field" placeholder="Field of study (optional)" style="flex:2;min-width:140px"><button type="button" class="add-entry-btn" onclick="addEduEntry('em')">+ Add</button></div><div class="entry-list" id="em-edu-list"></div></div></div>
+<div class="form-group full"><label>Interests</label><input type="text" id="em-interests"><span class="hint">Separate with commas</span></div>
+<div class="form-group full"><label>Open to <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#999;font-size:11px">(select all that apply)</span></label><div class="open-checkboxes" id="em-open-boxes"><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Mentoring">Mentoring</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Project collaboration">Project collaboration</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Job shadowing">Job shadowing</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Skill sharing">Skill sharing</label><label class="open-checkbox-label" onclick="toggleCheck(this)"><input type="checkbox" value="Speaking / presenting">Speaking / presenting</label></div></div>
+<div class="form-group full"><label>Change PIN (optional)</label><input type="password" id="em-pin" placeholder="Leave blank to keep current PIN" maxlength="4" inputmode="numeric"></div>
+</div>
+<div class="modal-btn-row" style="margin-top:18px"><button class="modal-btn primary" onclick="saveEdit()">Save changes</button><button class="modal-btn secondary" onclick="closeModal('edit-modal')">Cancel</button></div>
+<div class="success-msg" id="edit-success"></div><div class="error-msg" id="edit-error"></div>
+</div></div>
+
+<script>
+const SK='wepe_dir_v7';
+const PER=20;
+let pg=1;
+const SEED=[
+{first:'Marcus',last:'Delgado',role:'Power Systems Engineer I',dept:'Transmission Planning Utilities',city:'Austin, TX',joined:'2022-06-13',skills:[{name:'PSS/E',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'},{name:'AutoCAD',prof:'Basic'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Priya',last:'Nair',role:'Power Systems Engineer II',dept:'Transmission Planning Utilities',city:'Austin, TX',joined:'2020-03-02',skills:[{name:'PSS/E',prof:'Expert'},{name:'short circuit analysis',prof:'Proficient'},{name:'PowerWorld',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'James',last:'Kowalczyk',role:'Senior Power Systems Engineer',dept:'Transmission Planning Utilities',city:'Austin, TX',joined:'2018-01-08',skills:[{name:'PSS/E',prof:'Expert'},{name:'contingency analysis',prof:'Expert'},{name:'PSCAD',prof:'Proficient'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Layla',last:'Hassan',role:'Power Systems Engineer II',dept:'Transmission Planning Generation',city:'Austin, TX',joined:'2021-04-05',skills:[{name:'PSS/E',prof:'Proficient'},{name:'PowerWorld',prof:'Proficient'},{name:'contingency analysis',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Alejandro',last:'Torres',role:'Power Systems Engineer III',dept:'Transmission Planning Utilities',city:'Austin, TX',joined:'2019-11-03',skills:[{name:'PSS/E',prof:'Expert'},{name:'PowerWorld',prof:'Expert'},{name:'contingency analysis',prof:'Proficient'}],edu:[{type:"MS",school:'UT Austin',field:'Power Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Aaliya',last:'Rahman',role:'Power Systems Engineer I',dept:'System Studies',city:'Austin, TX',joined:'2022-09-06',skills:[{name:'ETAP',prof:'Proficient'},{name:'short circuit analysis',prof:'Basic'},{name:'relay coordination',prof:'Basic'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Derek',last:'Okonkwo',role:'Power Systems Engineer II',dept:'System Studies',city:'Austin, TX',joined:'2020-07-14',skills:[{name:'PSCAD',prof:'Proficient'},{name:'harmonic analysis',prof:'Proficient'},{name:'power quality',prof:'Proficient'}],edu:[{type:"MS",school:'UT Austin',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Leah',last:'Christensen',role:'Senior Power Systems Engineer',dept:'System Studies',city:'Austin, TX',joined:'2017-03-20',skills:[{name:'PSS/E',prof:'Expert'},{name:'transient stability',prof:'Expert'},{name:'PSCAD',prof:'Expert'}],edu:[{type:"MS",school:'Texas A&M',field:'Power Systems'}],open:['Mentoring'],pin:'0811'},
+{first:'Sofia',last:'Hernandez',role:'Power Systems Engineer I',dept:'Grid Modernization',city:'Austin, TX',joined:'2022-11-07',skills:[{name:'GIS',prof:'Proficient'},{name:'load forecasting',prof:'Basic'},{name:'AutoCAD',prof:'Basic'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Kwame',last:'Asiedu',role:'Power Systems Engineer II',dept:'Grid Modernization',city:'Austin, TX',joined:'2021-01-19',skills:[{name:'SCADA',prof:'Proficient'},{name:'Python',prof:'Proficient'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Ethan',last:'Waller',role:'Power Systems Engineer III',dept:'Grid Modernization',city:'Austin, TX',joined:'2019-08-05',skills:[{name:'DER integration',prof:'Expert'},{name:'DERMS',prof:'Expert'},{name:'Python',prof:'Proficient'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Yasmine',last:'Benali',role:'Power Systems Engineer I',dept:'Grid Modernization',city:'Austin, TX',joined:'2023-05-22',skills:[{name:'Python',prof:'Proficient'},{name:'data analytics',prof:'Basic'},{name:'load forecasting',prof:'Basic'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Connor',last:'Fitzgerald',role:'Power Systems Engineer II',dept:'Distribution Design',city:'Austin, TX',joined:'2020-09-08',skills:[{name:'protection coordination',prof:'Proficient'},{name:'relay coordination',prof:'Proficient'},{name:'CAPE',prof:'Proficient'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Javier',last:'Rios',role:'Senior Power Systems Engineer',dept:'Distribution Design',city:'Austin, TX',joined:'2016-12-05',skills:[{name:'commissioning',prof:'Expert'},{name:'protection coordination',prof:'Expert'},{name:'relay coordination',prof:'Expert'}],edu:[{type:"MS",school:'UT Austin',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Nathan',last:'Bergstrom',role:'Power Systems Engineer II',dept:'Distribution Planning',city:'Austin, TX',joined:'2020-10-12',skills:[{name:'CYME',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'},{name:'relay coordination',prof:'Basic'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Danielle',last:'Moreau',role:'Senior Power Systems Engineer',dept:'Distribution Planning',city:'Austin, TX',joined:'2017-07-24',skills:[{name:'CYME',prof:'Expert'},{name:'protection coordination',prof:'Expert'},{name:'DER integration',prof:'Proficient'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Ravi',last:'Iyer',role:'Power Systems Engineer I',dept:'Generation Interconnection',city:'Austin, TX',joined:'2022-04-04',skills:[{name:'PSS/E',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'short circuit analysis',prof:'Basic'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Ingrid',last:'Sorenson',role:'Power Systems Engineer II',dept:'Generation Interconnection',city:'Austin, TX',joined:'2020-11-16',skills:[{name:'PSS/E',prof:'Proficient'},{name:'PowerWorld',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Yemi',last:'Adewale',role:'Power Systems Engineer III',dept:'Generation Interconnection',city:'Austin, TX',joined:'2019-05-07',skills:[{name:'PSS/E',prof:'Expert'},{name:'transient stability',prof:'Expert'},{name:'short circuit analysis',prof:'Proficient'}],edu:[{type:"MS",school:'UT Austin',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Yuki',last:'Nakashima',role:'Power Systems Engineer II',dept:'NERC Technical',city:'Austin, TX',joined:'2020-06-22',skills:[{name:'relay coordination',prof:'Expert'},{name:'protection coordination',prof:'Proficient'},{name:'CAPE',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Omar',last:'Farouk',role:'Senior Power Systems Engineer',dept:'NERC Technical',city:'Austin, TX',joined:'2017-09-11',skills:[{name:'protection coordination',prof:'Expert'},{name:'relay coordination',prof:'Expert'},{name:'PSCAD',prof:'Proficient'}],edu:[{type:"MS",school:'UT Austin',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Clara',last:'Bauer',role:'Power Systems Engineer I',dept:'Integrated Grid Planning',city:'Austin, TX',joined:'2022-12-12',skills:[{name:'load forecasting',prof:'Basic'},{name:'data analytics',prof:'Basic'},{name:'Excel',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Aisha',last:'Kamara',role:'Senior Power Systems Engineer',dept:'Integrated Grid Planning',city:'Austin, TX',joined:'2017-05-29',skills:[{name:'regulatory compliance',prof:'Expert'},{name:'load forecasting',prof:'Expert'},{name:'rate analysis',prof:'Proficient'}],edu:[{type:"MS",school:'Texas A&M',field:'Energy Systems'}],open:['Mentoring'],pin:'0811'},
+{first:'Folake',last:'Adesola',role:'Power Systems Engineer III',dept:'Analytics & Energy Programs',city:'Austin, TX',joined:'2019-04-01',skills:[{name:'load forecasting',prof:'Expert'},{name:'data analytics',prof:'Expert'},{name:'rate analysis',prof:'Proficient'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Patrick',last:'Lund',role:'Power Systems Engineer III',dept:'System Studies',city:'Austin, TX',joined:'2019-02-04',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'transient stability',prof:'Expert'}],edu:[{type:"MS",school:'UT Austin',field:'Power Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Adaeze',last:'Eze',role:'Senior Power Systems Engineer',dept:'System Studies',city:'Austin, TX',joined:'2018-08-27',skills:[{name:'PSCAD',prof:'Expert'},{name:'EMT studies',prof:'Expert'},{name:'harmonic analysis',prof:'Expert'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Samantha',last:'Osei',role:'Senior L&D Specialist',dept:'Human Resources: Learning & Development',city:'Austin, TX',joined:'2019-01-14',skills:[{name:'Articulate Rise',prof:'Expert'},{name:'facilitation',prof:'Expert'},{name:'needs analysis',prof:'Proficient'}],edu:[{type:"MS",school:'UT Austin',field:'Education'}],open:['Mentoring'],pin:'0811'},
+{first:'Victor',last:'Mensah',role:'Technical Trainer',dept:'Human Resources: Learning & Development',city:'Austin, TX',joined:'2020-08-03',skills:[{name:'facilitation',prof:'Expert'},{name:'curriculum design',prof:'Proficient'},{name:'PSS/E',prof:'Proficient'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Camille',last:'Fontaine',role:'Data Analyst',dept:'Analytics & Energy Programs',city:'Austin, TX',joined:'2020-12-07',skills:[{name:'Python',prof:'Expert'},{name:'data analytics',prof:'Expert'},{name:'Excel',prof:'Expert'}],edu:[{type:"MS",school:'UT Austin',field:'Data Science'}],open:['Skill sharing'],pin:'0811'},
+{first:'Diego',last:'Ramirez',role:'Project Manager',dept:'Operations & Strategy',city:'Austin, TX',joined:'2020-08-24',skills:[{name:'project management',prof:'Expert'},{name:'Excel',prof:'Proficient'},{name:'stakeholder management',prof:'Expert'}],edu:[{type:"BA",school:'Texas A&M',field:'Industrial Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Samuel',last:'Adesanya',role:'Business Development Manager',dept:'Business Development - Utilities',city:'Austin, TX',joined:'2019-06-17',skills:[{name:'business development',prof:'Expert'},{name:'proposal writing',prof:'Expert'},{name:'client management',prof:'Expert'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Hassan',last:'Al-Farsi',role:'Financial Analyst',dept:'Finance & Accounting',city:'Austin, TX',joined:'2020-05-11',skills:[{name:'Excel',prof:'Expert'},{name:'financial modeling',prof:'Expert'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Accounting'}],open:['Skill sharing'],pin:'0811'},
+{first:'Tara',last:'Singh',role:'Financial Controller',dept:'Finance & Accounting',city:'Austin, TX',joined:'2018-07-30',skills:[{name:'Excel',prof:'Expert'},{name:'financial modeling',prof:'Expert'},{name:'data analytics',prof:'Expert'}],edu:[{type:"BA",school:'Texas A&M',field:'Finance'}],open:['Skill sharing'],pin:'0811'},
+{first:'Imani',last:'Johnson',role:'Talent Acquisition Lead',dept:'Human Resources: Talent Acquisition',city:'Austin, TX',joined:'2020-04-13',skills:[{name:'recruiting',prof:'Expert'},{name:'Excel',prof:'Proficient'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Psychology'}],open:['Mentoring'],pin:'0811'},
+{first:'Nathan',last:'Brooks',role:'IT Systems Analyst',dept:'Information Technology',city:'Austin, TX',joined:'2021-06-14',skills:[{name:'Python',prof:'Expert'},{name:'SCADA',prof:'Proficient'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Computer Science'}],open:['Project collaboration'],pin:'0811'},
+{first:'Liam',last:'Thornton',role:'Regulatory Affairs Specialist',dept:'NERC Program Management',city:'Austin, TX',joined:'2019-07-15',skills:[{name:'regulatory compliance',prof:'Expert'},{name:'NERC standards',prof:'Expert'},{name:'rate analysis',prof:'Proficient'}],edu:[{type:"BA",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Grace',last:'Nakamura',role:'Marketing Specialist',dept:'Growth & Marketing',city:'Austin, TX',joined:'2021-03-08',skills:[{name:'content marketing',prof:'Expert'},{name:'social media',prof:'Expert'},{name:'Canva',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Marketing'}],open:['Skill sharing'],pin:'0811'},
+{first:'Michael',last:'Osei',role:'Power Systems Engineer I',dept:'Transmission Planning Generation',city:'Champaign, IL',joined:'2023-07-17',skills:[{name:'PSS/E',prof:'Basic'},{name:'AutoCAD',prof:'Basic'},{name:'ArcGIS',prof:'Basic'}],edu:[{type:"BA",school:'UIUC',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Tariq',last:'Mansouri',role:'Power Systems Engineer III',dept:'System Studies',city:'Champaign, IL',joined:'2019-06-10',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'transient stability',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Nadia',last:'Petrov',role:'Senior Power Systems Engineer',dept:'Grid Modernization',city:'Champaign, IL',joined:'2017-06-26',skills:[{name:'energy storage modeling',prof:'Expert'},{name:'IEEE 1547',prof:'Expert'},{name:'DER integration',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Zainab',last:'Al-Rashid',role:'Senior Power Systems Engineer',dept:'Grid Modernization',city:'Champaign, IL',joined:'2018-10-15',skills:[{name:'DER integration',prof:'Expert'},{name:'DERMS',prof:'Expert'},{name:'IEEE 1547',prof:'Expert'}],edu:[{type:'PhD',school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Felix',last:'Gruber',role:'Power Systems Engineer II',dept:'Distribution Planning',city:'Champaign, IL',joined:'2021-02-09',skills:[{name:'CYME',prof:'Proficient'},{name:'fault analysis',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'}],edu:[{type:"BA",school:'UIUC',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Rosamund',last:'Hayes',role:'Senior Power Systems Engineer',dept:'System Studies',city:'Champaign, IL',joined:'2016-04-11',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'protection coordination',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Saoirse',last:'Flynn',role:'Senior Power Systems Engineer',dept:'NERC Technical',city:'Champaign, IL',joined:'2018-03-06',skills:[{name:'protection coordination',prof:'Expert'},{name:'relay coordination',prof:'Expert'},{name:'commissioning',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Chioma',last:'Obi',role:'Power Systems Engineer I',dept:'System Studies',city:'Champaign, IL',joined:'2023-03-13',skills:[{name:'ETAP',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'short circuit analysis',prof:'Basic'}],edu:[{type:"BA",school:'UIUC',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Emre',last:'Yilmaz',role:'Power Systems Engineer III',dept:'Generation Interconnection',city:'Champaign, IL',joined:'2019-10-14',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'dynamic modeling',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Adebimpe',last:'Afolabi',role:'Senior Power Systems Engineer',dept:'Grid Modernization',city:'Champaign, IL',joined:'2017-11-28',skills:[{name:'DER integration',prof:'Expert'},{name:'IEEE 1547',prof:'Expert'},{name:'DERMS',prof:'Proficient'}],edu:[{type:'PhD',school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Amara',last:'Diallo',role:'Power Systems Engineer I',dept:'Distribution Design',city:'Champaign, IL',joined:'2022-07-11',skills:[{name:'AutoCAD',prof:'Proficient'},{name:'relay coordination',prof:'Basic'},{name:'grounding design',prof:'Basic'}],edu:[{type:"BA",school:'Illinois Institute of Technology',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Fatou',last:'Coulibaly',role:'Power Systems Engineer I',dept:'Distribution Planning',city:'Champaign, IL',joined:'2022-08-01',skills:[{name:'CYME',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'AutoCAD',prof:'Proficient'}],edu:[{type:"BA",school:'UIUC',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Babatunde',last:'Salami',role:'Power Systems Engineer III',dept:'Distribution Planning',city:'Champaign, IL',joined:'2019-09-30',skills:[{name:'CYME',prof:'Expert'},{name:'protection coordination',prof:'Expert'},{name:'DER integration',prof:'Proficient'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Petra',last:'Novotna',role:'Power Systems Engineer III',dept:'NERC Technical',city:'Champaign, IL',joined:'2019-12-02',skills:[{name:'CAPE',prof:'Expert'},{name:'PSS/E',prof:'Proficient'},{name:'protection coordination',prof:'Expert'}],edu:[{type:"MS",school:'Northwestern University',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Lorenzo',last:'Bianchi',role:'Power Systems Engineer II',dept:'Integrated Grid Planning',city:'Champaign, IL',joined:'2021-08-16',skills:[{name:'load forecasting',prof:'Proficient'},{name:'data analytics',prof:'Proficient'},{name:'PSS/E',prof:'Basic'}],edu:[{type:"BA",school:'UIUC',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Kezia',last:'Mwangi',role:'Instructional Designer',dept:'Human Resources: Learning & Development',city:'Champaign, IL',joined:'2021-11-29',skills:[{name:'Articulate Rise',prof:'Expert'},{name:'curriculum design',prof:'Expert'},{name:'needs analysis',prof:'Proficient'}],edu:[{type:"MS",school:'UIUC',field:'Instructional Technology'}],open:['Project collaboration'],pin:'0811'},
+{first:'Blake',last:'Morrison',role:'HR Business Partner',dept:'Human Resources: Operations',city:'Champaign, IL',joined:'2019-03-25',skills:[{name:'HR management',prof:'Expert'},{name:'data analytics',prof:'Proficient'},{name:'Excel',prof:'Proficient'}],edu:[{type:"MS",school:'UIUC',field:'Human Resources'}],open:['Job shadowing'],pin:'0811'},
+{first:'Annika',last:'Holm',role:'Data Analyst',dept:'Analytics & Energy Programs',city:'Champaign, IL',joined:'2021-09-20',skills:[{name:'Python',prof:'Expert'},{name:'data analytics',prof:'Expert'},{name:'Power BI',prof:'Proficient'}],edu:[{type:"MS",school:'UIUC',field:'Statistics'}],open:['Project collaboration'],pin:'0811'},
+{first:'Beatriz',last:'Alves',role:'Project Controls Analyst',dept:'Operations & Strategy',city:'Champaign, IL',joined:'2021-05-03',skills:[{name:'project management',prof:'Proficient'},{name:'Excel',prof:'Expert'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'UIUC',field:'Industrial Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Claudia',last:'Romano',role:'Business Development Analyst',dept:'Business Development - Energy Resources',city:'Champaign, IL',joined:'2022-03-14',skills:[{name:'business development',prof:'Proficient'},{name:'market analysis',prof:'Proficient'},{name:'Excel',prof:'Expert'}],edu:[{type:"BA",school:'UIUC',field:'Business'}],open:['Skill sharing'],pin:'0811'},
+{first:'Antoine',last:'Leblanc',role:'Senior Power Systems Engineer',dept:'Generation Interconnection',city:'Toronto, ON',joined:'2017-01-23',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Proficient'},{name:'load flow analysis',prof:'Expert'}],edu:[{type:"MS",school:'U of Toronto',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Tobias',last:'Fischer',role:'Power Systems Engineer III',dept:'Grid Modernization',city:'Toronto, ON',joined:'2020-02-03',skills:[{name:'energy storage modeling',prof:'Expert'},{name:'SCADA',prof:'Proficient'},{name:'DER integration',prof:'Proficient'}],edu:[{type:"MS",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Callum',last:'Mackenzie',role:'Power Systems Engineer II',dept:'Integrated Grid Planning',city:'Toronto, ON',joined:'2021-07-19',skills:[{name:'load forecasting',prof:'Proficient'},{name:'data analytics',prof:'Proficient'},{name:'PSS/E',prof:'Basic'}],edu:[{type:"BA",school:'U of Toronto',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Kolade',last:'Adeyinka',role:'Senior Power Systems Engineer',dept:'Generation Interconnection',city:'Toronto, ON',joined:'2016-08-18',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'transient stability',prof:'Expert'}],edu:[{type:"MS",school:'U of Toronto',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Sven',last:'Lindqvist',role:'Power Systems Engineer II',dept:'System Studies',city:'Toronto, ON',joined:'2021-10-25',skills:[{name:'PSS/E',prof:'Proficient'},{name:'frequency response',prof:'Proficient'},{name:'transient stability',prof:'Basic'}],edu:[{type:"BA",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Nkechi',last:'Uba',role:'Senior Power Systems Engineer',dept:'Distribution Planning',city:'Toronto, ON',joined:'2018-04-16',skills:[{name:'CYME',prof:'Expert'},{name:'DER integration',prof:'Expert'},{name:'protection coordination',prof:'Proficient'}],edu:[{type:"MS",school:'U of Toronto',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Rohan',last:'Mehta',role:'Power Systems Engineer II',dept:'Distribution Design',city:'Toronto, ON',joined:'2021-03-16',skills:[{name:'protection coordination',prof:'Proficient'},{name:'relay coordination',prof:'Proficient'},{name:'AutoCAD',prof:'Proficient'}],edu:[{type:"BA",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Brendan',last:"O'Sullivan",role:'Power Systems Engineer I',dept:'NERC Technical',city:'Toronto, ON',joined:'2022-10-03',skills:[{name:'relay coordination',prof:'Basic'},{name:'CAPE',prof:'Basic'},{name:'AutoCAD',prof:'Proficient'}],edu:[{type:"BA",school:'U of Toronto',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Mikael',last:'Strand',role:'Power Systems Engineer I',dept:'Generation Interconnection',city:'Toronto, ON',joined:'2023-02-27',skills:[{name:'PSS/E',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'short circuit analysis',prof:'Basic'}],edu:[{type:"BA",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Mei',last:'Tanaka',role:'Senior Power Systems Engineer',dept:'Distribution Design',city:'Toronto, ON',joined:'2015-05-04',skills:[{name:'IEC 61850',prof:'Expert'},{name:'SCADA',prof:'Expert'},{name:'protection coordination',prof:'Expert'}],edu:[{type:"MS",school:'U of Toronto',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Nia',last:'Osei-Bonsu',role:'Senior Power Systems Engineer',dept:'Integrated Grid Planning',city:'Toronto, ON',joined:'2016-11-08',skills:[{name:'regulatory compliance',prof:'Expert'},{name:'load forecasting',prof:'Expert'},{name:'rate analysis',prof:'Expert'}],edu:[{type:"MS",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Daphne',last:'Leroy',role:'Financial Analyst',dept:'Finance & Accounting',city:'Toronto, ON',joined:'2021-04-06',skills:[{name:'Excel',prof:'Expert'},{name:'financial modeling',prof:'Expert'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'U of Toronto',field:'Finance'}],open:['Skill sharing'],pin:'0811'},
+{first:'Jerome',last:'Thibodeau',role:'Business Development Manager',dept:'Business Development - Energy Resources',city:'Toronto, ON',joined:'2020-09-21',skills:[{name:'business development',prof:'Expert'},{name:'client management',prof:'Expert'},{name:'proposal writing',prof:'Proficient'}],edu:[{type:"BA",school:'U of Waterloo',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Zara',last:'Mitchell',role:'Recruitment Specialist',dept:'Human Resources: Talent Acquisition',city:'Toronto, ON',joined:'2022-01-10',skills:[{name:'recruiting',prof:'Proficient'},{name:'data analytics',prof:'Basic'},{name:'Excel',prof:'Proficient'}],edu:[{type:"BA",school:'U of Toronto',field:'Psychology'}],open:['Skill sharing'],pin:'0811'},
+{first:'Xavier',last:'Nkosi',role:'Cybersecurity Analyst',dept:'Information Technology',city:'Toronto, ON',joined:'2020-03-30',skills:[{name:'SCADA',prof:'Proficient'},{name:'regulatory compliance',prof:'Expert'},{name:'Python',prof:'Expert'}],edu:[{type:"BA",school:'U of Waterloo',field:'Computer Science'}],open:['Project collaboration'],pin:'0811'},
+{first:'Carlos',last:'Reyes',role:'Power Systems Engineer I',dept:'Transmission Planning Utilities',city:'Panama City, Panama',joined:'2022-05-16',skills:[{name:'PSS/E',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'AutoCAD',prof:'Proficient'}],edu:[{type:"BA",school:'UTP – Panama',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Beatriz',last:'Reyes',role:'Power Systems Engineer II',dept:'Distribution Planning',city:'Panama City, Panama',joined:'2020-08-31',skills:[{name:'CYME',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'},{name:'fault analysis',prof:'Basic'}],edu:[{type:"BA",school:'UTP – Panama',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Rodrigo',last:'Espinoza',role:'Power Systems Engineer III',dept:'System Studies',city:'Panama City, Panama',joined:'2019-01-14',skills:[{name:'PSS/E',prof:'Expert'},{name:'short circuit analysis',prof:'Expert'},{name:'load flow analysis',prof:'Expert'}],edu:[{type:"MS",school:'UTP – Panama',field:'Electrical Engineering'}],open:['Skill sharing'],pin:'0811'},
+{first:'Valeria',last:'Moreno',role:'Power Systems Engineer II',dept:'Generation Interconnection',city:'Panama City, Panama',joined:'2021-06-07',skills:[{name:'PSS/E',prof:'Proficient'},{name:'PowerWorld',prof:'Basic'},{name:'load flow analysis',prof:'Proficient'}],edu:[{type:"BA",school:'UTP – Panama',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Andres',last:'Castillo',role:'Senior Power Systems Engineer',dept:'Transmission Planning Generation',city:'Panama City, Panama',joined:'2016-09-19',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Proficient'},{name:'contingency analysis',prof:'Expert'}],edu:[{type:"MS",school:'Texas A&M',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Lucia',last:'Montoya',role:'Power Systems Engineer I',dept:'Grid Modernization',city:'Panama City, Panama',joined:'2023-04-03',skills:[{name:'GIS',prof:'Basic'},{name:'AutoCAD',prof:'Basic'},{name:'load forecasting',prof:'Basic'}],edu:[{type:"BA",school:'U de Panamá',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Eduardo',last:'Herrera',role:'Power Systems Engineer II',dept:'Distribution Design',city:'Panama City, Panama',joined:'2020-12-14',skills:[{name:'AutoCAD',prof:'Expert'},{name:'protection coordination',prof:'Proficient'},{name:'relay coordination',prof:'Basic'}],edu:[{type:"BA",school:'UTP – Panama',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Isabella',last:'Vargas',role:'Business Development Analyst',dept:'Business Development - Utilities',city:'Panama City, Panama',joined:'2022-02-28',skills:[{name:'business development',prof:'Proficient'},{name:'market analysis',prof:'Proficient'},{name:'proposal writing',prof:'Proficient'}],edu:[{type:"BA",school:'UTP – Panama',field:'Business'}],open:['Skill sharing'],pin:'0811'},
+{first:'Marcos',last:'Delgado',role:'Financial Analyst',dept:'Finance & Accounting',city:'Panama City, Panama',joined:'2021-07-12',skills:[{name:'Excel',prof:'Proficient'},{name:'financial modeling',prof:'Proficient'},{name:'data analytics',prof:'Basic'}],edu:[{type:"BA",school:'U de Panamá',field:'Accounting'}],open:['Skill sharing'],pin:'0811'},
+{first:'Rania',last:'Khalil',role:'Power Systems Engineer II',dept:'Transmission Planning Utilities',city:'Beirut, Lebanon',joined:'2021-05-10',skills:[{name:'PSS/E',prof:'Proficient'},{name:'load flow analysis',prof:'Proficient'},{name:'short circuit analysis',prof:'Basic'}],edu:[{type:"BA",school:'AUB',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Karim',last:'Nassar',role:'Senior Power Systems Engineer',dept:'System Studies',city:'Beirut, Lebanon',joined:'2017-08-22',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'transient stability',prof:'Expert'}],edu:[{type:"MS",school:'AUB',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Layla',last:'Aziz',role:'Power Systems Engineer I',dept:'Distribution Design',city:'Beirut, Lebanon',joined:'2023-01-30',skills:[{name:'AutoCAD',prof:'Basic'},{name:'relay coordination',prof:'Basic'},{name:'protection coordination',prof:'Basic'}],edu:[{type:"BA",school:'LAU',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Nour',last:'Haddad',role:'Power Systems Engineer II',dept:'Grid Modernization',city:'Beirut, Lebanon',joined:'2020-07-06',skills:[{name:'Python',prof:'Proficient'},{name:'data analytics',prof:'Proficient'},{name:'SCADA',prof:'Basic'}],edu:[{type:"BA",school:'Lebanese University',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Sami',last:'Khoury',role:'Senior Power Systems Engineer',dept:'Transmission Planning Generation',city:'Beirut, Lebanon',joined:'2016-03-14',skills:[{name:'PSS/E',prof:'Expert'},{name:'PowerWorld',prof:'Expert'},{name:'contingency analysis',prof:'Expert'}],edu:[{type:"MS",school:'AUB',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Maya',last:'Salameh',role:'Power Systems Engineer I',dept:'Distribution Planning',city:'Beirut, Lebanon',joined:'2022-09-19',skills:[{name:'CYME',prof:'Basic'},{name:'load flow analysis',prof:'Basic'},{name:'fault analysis',prof:'Basic'}],edu:[{type:"BA",school:'LAU',field:'Electrical Engineering'}],open:['Job shadowing'],pin:'0811'},
+{first:'Tarek',last:'Mansour',role:'Business Development Manager',dept:'Business Development - Energy Resources',city:'Beirut, Lebanon',joined:'2019-04-08',skills:[{name:'business development',prof:'Expert'},{name:'client management',prof:'Expert'},{name:'proposal writing',prof:'Expert'}],edu:[{type:"BA",school:'AUB',field:'Electrical Engineering'}],open:['Project collaboration'],pin:'0811'},
+{first:'Dina',last:'Frem',role:'Marketing Specialist',dept:'Growth & Marketing',city:'Beirut, Lebanon',joined:'2021-10-11',skills:[{name:'content marketing',prof:'Expert'},{name:'social media',prof:'Expert'},{name:'copywriting',prof:'Proficient'}],edu:[{type:"BA",school:'LAU',field:'Marketing'}],open:['Skill sharing'],pin:'0811'},
+{first:'Hana',last:'Karam',role:'Financial Analyst',dept:'Finance & Accounting',city:'Beirut, Lebanon',joined:'2022-06-20',skills:[{name:'Excel',prof:'Expert'},{name:'financial modeling',prof:'Proficient'},{name:'data analytics',prof:'Proficient'}],edu:[{type:"BA",school:'AUB',field:'Finance'}],open:['Skill sharing'],pin:'0811'},
+{first:'David',last:'Kim',role:'Senior Power Systems Engineer',dept:'Transmission Planning Generation',city:'Austin, TX',joined:'2016-09-12',skills:[{name:'PSS/E',prof:'Expert'},{name:'PSCAD',prof:'Expert'},{name:'contingency analysis',prof:'Expert'}],edu:[{type:"MS",school:'Rice University',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Patrick',last:'Donnelly',role:'Senior Power Systems Engineer',dept:'Owners Engineer',city:'Champaign, IL',joined:'2015-10-19',skills:[{name:'PSS/E',prof:'Expert'},{name:'project management',prof:'Expert'},{name:'commissioning',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Simone',last:'Bernard',role:'Energy Market Analyst',dept:'Energy Market Analysis',city:'Toronto, ON',joined:'2020-11-30',skills:[{name:'market analysis',prof:'Expert'},{name:'Python',prof:'Proficient'},{name:'data analytics',prof:'Expert'}],edu:[{type:"MS",school:'U of Toronto',field:'Economics'}],open:['Skill sharing'],pin:'0811'},
+{first:'Yolanda',last:'Freeman',role:'Software Developer',dept:'Software Development',city:'Austin, TX',joined:'2021-04-22',skills:[{name:'Python',prof:'Expert'},{name:'JavaScript',prof:'Expert'},{name:'React',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Computer Science'}],open:['Project collaboration'],pin:'0811'},
+{first:'Freddie',last:'Stone',role:'Software Data Engineer',dept:'Software Data',city:'Champaign, IL',joined:'2022-07-05',skills:[{name:'Python',prof:'Expert'},{name:'SQL',prof:'Expert'},{name:'data analytics',prof:'Expert'}],edu:[{type:"MS",school:'UIUC',field:'Computer Science'}],open:['Skill sharing'],pin:'0811'},
+{first:'Elena',last:'Vasquez',role:'Proposal Coordinator',dept:'Growth & Marketing',city:'Austin, TX',joined:'2021-09-13',skills:[{name:'proposal writing',prof:'Expert'},{name:'copywriting',prof:'Expert'},{name:'content marketing',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Communication'}],open:['Skill sharing'],pin:'0811'},
+{first:'Warren',last:'Bailey',role:'Regulatory Affairs Specialist',dept:'NERC Program Management',city:'Austin, TX',joined:'2020-01-06',skills:[{name:'regulatory compliance',prof:'Expert'},{name:'NERC standards',prof:'Expert'},{name:'rate analysis',prof:'Proficient'}],edu:[{type:"BA",school:'UT Austin',field:'Electrical Engineering'}],open:['Mentoring'],pin:'0811'},
+{first:'Wendy',last:'Tran',role:'Training Coordinator',dept:'Human Resources: Learning & Development',city:'Austin, TX',joined:'2022-02-07',skills:[{name:'LMS administration',prof:'Expert'},{name:'Articulate Rise',prof:'Proficient'},{name:'curriculum design',prof:'Basic'}],edu:[{type:"BA",school:'UT Austin',field:'Business Administration'}],open:['Job shadowing'],pin:'0811'}
+];
+function loadData(){try{const r=localStorage.getItem(SK);if(r)return JSON.parse(r);}catch(e){}return SEED;}
+function saveData(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch(e){}}
+const AVC=[['#dbeafe','#1d5fa0'],['#fce7f3','#9d174d'],['#d1fae5','#065f46'],['#fef3c7','#92400e'],['#ede9fe','#5b21b6'],['#ffedd5','#9a3412'],['#e0f2fe','#075985'],['#fdf2f8','#831843'],['#ecfdf5','#064e3b']];
+function avc(n){let h=0;for(let i=0;i<n.length;i++)h=(h*31+n.charCodeAt(i))&0xffffffff;return AVC[Math.abs(h)%AVC.length];}
+function ini(f,l){return(f[0]||'')+(l[0]||'');}
+function fmt(d){if(!d)return'';const p=d.split('-');return new Date(d).toLocaleDateString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});}
+function toggleCheck(label){const cb=label.querySelector('input');cb.checked=!cb.checked;label.classList.toggle('checked',cb.checked);}
+function getChecked(id){return[...document.querySelectorAll('#'+id+' input:checked')].map(i=>i.value);}
+function setChecked(id,vals){const arr=Array.isArray(vals)?vals:(vals?[vals]:[]);document.querySelectorAll('#'+id+' label').forEach(l=>{const cb=l.querySelector('input');const on=arr.includes(cb.value);cb.checked=on;l.classList.toggle('checked',on);});}
+function pinMove(el,nextId){if(el.value.length===1&&nextId!==null){const n=typeof nextId==='string'?document.getElementById(nextId):document.getElementById('ep'+nextId);if(n)n.focus();}}
+function pinBack(e,el,prevId){if(e.key==='Backspace'&&el.value===''&&prevId!==null){const p=typeof prevId==='string'?document.getElementById(prevId):document.getElementById('ep'+prevId);if(p){p.focus();p.value='';}}}
+function updateStats(data){document.getElementById('stat-total').textContent=data.length;document.getElementById('stat-skills').textContent=new Set(data.flatMap(p=>p.skills||[])).size;}
+function renderDirectory(){
+const data=loadData();
+const q=document.getElementById('search-input').value.toLowerCase();
+const df=document.getElementById('dept-filter').value;
+const deptSel=document.getElementById('dept-filter');
+const cur=deptSel.value;
+const depts=[...new Set(data.map(p=>p.dept))].sort();
+deptSel.innerHTML='<option value="">All departments</option>'+depts.map(d=>'<option value="'+d+'"'+(d===cur?' selected':'')+'>'+d+'</option>').join('');
+const filtered=data.map((p,i)=>({...p,_idx:i})).filter(p=>{
+const s=[p.first,p.last,p.role,p.dept,p.city||'',...(p.skills||[]),...(p.edu||[])].join(' ').toLowerCase();
+return(!q||s.includes(q))&&(!df||p.dept===df);
+});
+document.getElementById('count-badge').textContent=data.length;
+updateStats(data);
+const total=Math.ceil(filtered.length/PER);
+if(pg>total)pg=1;
+const items=filtered.slice((pg-1)*PER,pg*PER);
+const grid=document.getElementById('directory-grid');
+if(!filtered.length){grid.innerHTML='<div class="empty-state"><p>No results found</p><span>Try adjusting your search or filters.</span></div>';document.getElementById('pagination').innerHTML='';return;}
+grid.innerHTML=items.map(p=>{
+const iv=ini(p.first,p.last);
+const[bg,fg]=avc(p.first+p.last);
+const skillArr=p.skills||[];
+const st=skillArr.slice(0,4).map(s=>{
+  if(typeof s==='object'&&s.n){
+    const pc=s.p==='Expert'?'tag-skill-expert':s.p==='Basic'?'tag-skill-basic':'tag-skill-proficient';
+    return'<span class="tag '+pc+'" title="'+s.p+'">'+s.n+'</span>';
+  }
+  return'<span class="tag tag-skill">'+s+'</span>';
+}).join('');
+const eduArr=p.edu||[];
+const et=eduArr.slice(0,2).map(e=>{
+  if(typeof e==='object'&&e.s){
+    const label=e.t?'<span class="edu-type-badge">'+e.t.replace("'s Degree",'').replace(' Degree','').replace(' Diploma','').replace('Bachelor','BA').replace('Master','MS').replace('Associate','AS').replace('Doctorate','PhD').replace('Professional License','Lic.').replace('High School','HS')+'</span>':'';
+    return'<span class="tag tag-edu">'+label+e.s+(e.f?' · '+e.f:'')+'</span>';
+  }
+  return'<span class="tag tag-edu">'+e+'</span>';
+}).join('');
+const oa=Array.isArray(p.open)?p.open:(p.open?[p.open]:[]);
+const ot=oa.length?'<div class="tag-label">Open to</div><div class="tag-row">'+oa.map(o=>'<span class="tag tag-open">'+o+'</span>').join('')+'</div>':'';
+const meta=(p.city?'<span>📍 '+p.city+'</span>':'')+(p.joined?'<span>📅 '+fmt(p.joined)+'</span>':'');
+return'<div class="person-card" onclick="openProfile('+p._idx+')" style="cursor:pointer"><div class="card-header"><div class="avatar" style="background:'+bg+';color:'+fg+'">'+iv+'</div><div><div class="card-name">'+p.first+' '+p.last+'</div><div class="card-role">'+p.role+'</div></div></div><div class="card-dept">'+p.dept+'</div>'+(meta?'<div class="card-meta">'+meta+'</div>':'')+(st?'<div class="tag-label">Skills</div><div class="tag-row">'+st+'</div>':'')+(et?'<div class="tag-label">Education &amp; Certs</div><div class="tag-row">'+et+'</div>':'')+ot+'</div>';
+}).join('');
+renderPag(total,filtered.length);
+}
+function renderPag(total,totalItems){
+const p=document.getElementById('pagination');
+if(total<=1){p.innerHTML='';return;}
+let h='<button class="page-btn" onclick="goPage('+(pg-1)+')" '+(pg===1?'disabled':'')+'>← Prev</button>';
+for(let i=1;i<=total;i++)h+='<button class="page-btn'+(i===pg?' active':'')+'\" onclick="goPage('+i+')">'+i+'</button>';
+h+='<button class="page-btn" onclick="goPage('+(pg+1)+')" '+(pg===total?'disabled':'')+'>Next →</button>';
+h+='<span class="page-info">'+((pg-1)*PER+1)+'–'+Math.min(pg*PER,totalItems)+' of '+totalItems+'</span>';
+p.innerHTML=h;
+}
+function goPage(n){pg=n;renderDirectory();window.scrollTo(0,0);}
+function submitProfile(){
+const first=document.getElementById('f-first').value.trim();
+const last=document.getElementById('f-last').value.trim();
+const role=document.getElementById('f-role').value.trim();
+const dept=document.getElementById('f-dept').value;
+const city=document.getElementById('f-city').value.trim();
+const joined=document.getElementById('f-joined').value;
+const interestsRaw=document.getElementById('f-interests').value.trim();
+const open=getChecked('f-open-boxes');
+const pin=document.getElementById('f-pin').value.trim();
+const skills=window._fSkills||[];
+const edu=window._fEdu||[];
+const errEl=document.getElementById('submit-error');
+errEl.classList.remove('show');
+if(!first||!last||!role||!dept||!city||!skills.length){errEl.textContent='Please fill in all required fields and add at least one skill.';errEl.classList.add('show');return;}
+if(!/^\d{4}$/.test(pin)){errEl.textContent='PIN must be exactly 4 digits.';errEl.classList.add('show');return;}
+const data=loadData();
+data.unshift({first,last,role,dept,city,joined,skills,edu,interests:interestsRaw.split(',').map(s=>s.trim()).filter(Boolean),open,pin});
+saveData(data);
+['f-first','f-last','f-role','f-dept','f-city','f-interests','f-pin'].forEach(id=>document.getElementById(id).value='');
+document.getElementById('f-joined').value='';
+setChecked('f-open-boxes',[]);
+window._fSkills=[];window._fEdu=[];
+renderEntryList('f-skill-list',window._fSkills,'skill');
+renderEntryList('f-edu-list',window._fEdu,'edu');
+document.getElementById('success-msg').classList.add('show');
+setTimeout(()=>document.getElementById('success-msg').classList.remove('show'),5000);
+renderDirectory();
+}
+function lookupProfile(){
+const first=document.getElementById('el-first').value.trim().toLowerCase();
+const last=document.getElementById('el-last').value.trim().toLowerCase();
+const pin=['ep0','ep1','ep2','ep3'].map(id=>document.getElementById(id).value).join('');
+const errEl=document.getElementById('lookup-error');
+errEl.classList.remove('show');
+if(!first||!last||pin.length!==4){errEl.textContent='Please fill in your name and all 4 PIN digits.';errEl.classList.add('show');return;}
+const data=loadData();
+const idx=data.findIndex(p=>p.first.toLowerCase()===first&&p.last.toLowerCase()===last&&p.pin===pin);
+if(idx===-1){errEl.textContent='No match found. Check your name and PIN and try again.';errEl.classList.add('show');return;}
+openEditModal(idx);
+}
+function openEditModal(idx){
+const data=loadData();
+const p=data[idx];
+document.getElementById('em-index').value=idx;
+document.getElementById('em-first').value=p.first;
+document.getElementById('em-last').value=p.last;
+document.getElementById('em-role').value=p.role;
+document.getElementById('em-dept').value=p.dept||'';
+document.getElementById('em-city').value=p.city||'';
+document.getElementById('em-joined').value=p.joined||'';
+window._emSkills=(p.skills||[]).map(s=>typeof s==='object'?s:{name:s,prof:'Proficient'});
+window._emEdu=(p.edu||[]).map(e=>typeof e==='object'?e:{type:'',school:e,field:''});
+renderEntryList('em-skill-list',window._emSkills,'skill');
+renderEntryList('em-edu-list',window._emEdu,'edu');
+document.getElementById('em-interests').value=(p.interests||[]).join(', ');
+document.getElementById('em-pin').value='';
+setChecked('em-open-boxes',Array.isArray(p.open)?p.open:(p.open?[p.open]:[]));
+document.getElementById('edit-success').classList.remove('show');
+document.getElementById('edit-error').classList.remove('show');
+document.getElementById('edit-modal').classList.add('show');
+}
+function saveEdit(){
+const idx=parseInt(document.getElementById('em-index').value);
+const first=document.getElementById('em-first').value.trim();
+const last=document.getElementById('em-last').value.trim();
+const role=document.getElementById('em-role').value.trim();
+const dept=document.getElementById('em-dept').value;
+const city=document.getElementById('em-city').value.trim();
+const joined=document.getElementById('em-joined').value;
+const interestsRaw=document.getElementById('em-interests').value.trim();
+const open=getChecked('em-open-boxes');
+const newPin=document.getElementById('em-pin').value.trim();
+const skills=window._emSkills||[];
+const edu=window._emEdu||[];
+const errEl=document.getElementById('edit-error');
+errEl.classList.remove('show');
+if(!first||!last||!role||!dept){errEl.textContent='Please fill in all required fields.';errEl.classList.add('show');return;}
+if(newPin&&!/^\d{4}$/.test(newPin)){errEl.textContent='New PIN must be exactly 4 digits.';errEl.classList.add('show');return;}
+const data=loadData();
+const oldPin=data[idx].pin;
+data[idx]={first,last,role,dept,city,joined,skills,edu,interests:interestsRaw.split(',').map(s=>s.trim()).filter(Boolean),open,pin:newPin||oldPin};
+saveData(data);
+renderDirectory();
+const succEl=document.getElementById('edit-success');
+succEl.textContent='✓ Profile updated!';
+succEl.classList.add('show');
+setTimeout(()=>{succEl.classList.remove('show');closeModal('edit-modal');},1800);
+}
+function closeModal(id){document.getElementById(id).classList.remove('show');}
+function switchTab(tab,btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+document.getElementById('tab-'+tab).classList.add('active');
+btn.classList.add('active');
+if(tab==='skills-browser')renderSkillList();
+}
+let activeSkill=null;
+function getSkillMap(deptFilter){
+const data=loadData();
+const map={};
+data.forEach((p,idx)=>{
+if(deptFilter&&p.dept!==deptFilter)return;
+(p.skills||[]).forEach(s=>{const k=typeof s==='object'?s.n:s.trim();if(!map[k])map[k]=[];map[k].push({...p,_idx:idx});});
+});
+return map;
+}
+function renderSkillList(){
+const data=loadData();
+const deptSel=document.getElementById('skill-dept-filter');
+const cur=deptSel.value;
+const depts=[...new Set(data.map(p=>p.dept))].sort();
+deptSel.innerHTML='<option value="">All departments</option>'+depts.map(d=>'<option value="'+d+'"'+(d===cur?' selected':'')+'>'+d+'</option>').join('');
+const deptFilter=deptSel.value;
+const searchVal=document.getElementById('skill-search').value.toLowerCase();
+const map=getSkillMap(deptFilter);
+let skills=Object.keys(map).sort((a,b)=>a.localeCompare(b));
+if(searchVal)skills=skills.filter(s=>s.toLowerCase().includes(searchVal));
+document.getElementById('skill-total-badge').textContent=skills.length;
+document.getElementById('skills-list').innerHTML=skills.map(s=>'<div class="skill-item'+(activeSkill===s?' active':'')+'" onclick="selectSkill(\''+s.replace(/'/g,"\\'")+'\')" ><span class="skill-item-name">'+s+'</span><span class="skill-count">'+map[s].length+'</span></div>').join('');
+if(activeSkill&&map[activeSkill])renderSkillResults(activeSkill,map[activeSkill]);
+else if(activeSkill){activeSkill=null;document.getElementById('skills-results-pane').innerHTML='<div class="skills-empty"><p>No results in this department</p></div>';}
+}
+function selectSkill(skill){
+activeSkill=skill;
+const deptFilter=document.getElementById('skill-dept-filter').value;
+const map=getSkillMap(deptFilter);
+renderSkillResults(skill,map[skill]||[]);
+document.querySelectorAll('.skill-item').forEach(el=>el.classList.toggle('active',el.querySelector('.skill-item-name').textContent===skill));
+
+
+}
+function renderSkillResults(skill,people){
+const pane=document.getElementById('skills-results-pane');
+if(!people.length){pane.innerHTML='<div class="skills-empty"><p>No one found with "'+skill+'"</p></div>';return;}
+const cards=people.map(p=>{const[bg,fg]=avc(p.first+p.last);const other=(p.skills||[]).map(s=>typeof s==='object'?s.n:s).filter(s=>s!==skill).slice(0,4);return'<div class="person-mini-card" onclick="openProfile('+p._idx+')" style="cursor:pointer"><div class="mini-card-header"><div class="mini-avatar" style="background:'+bg+';color:'+fg+'">'+ini(p.first,p.last)+'</div><div><div class="mini-name">'+p.first+' '+p.last+'</div><div class="mini-role">'+p.role+'</div></div></div><div class="mini-dept">'+p.dept+(p.city?' · '+p.city:'')+'</div>'+(other.length?'<div class="other-skills">'+other.map(s=>'<span class="other-skill-tag">'+s+'</span>').join('')+'</div>':'')+'</div>';}).join('');
+pane.innerHTML='<div class="skills-results-header"><div><div class="skills-results-title">People with <span>"'+skill+'"</span></div><div class="skills-results-sub">'+people.length+' '+(people.length===1?'person':'people')+'</div></div><button class="skills-back-btn" onclick="clearSkillSelection()">← All skills</button></div><div class="people-mini-grid">'+cards+'</div>';
+}
+function clearSkillSelection(){activeSkill=null;document.getElementById('skills-results-pane').innerHTML='<div class="skills-empty"><p>Select a skill to see who has it</p><span>Choose from the list on the left.</span></div>';document.querySelectorAll('.skill-item').forEach(el=>el.classList.remove('active'));}
+document.getElementById('edit-modal').addEventListener('click',function(e){if(e.target===this)closeModal('edit-modal');});
+
+// ── ADMIN ─────────────────────────────────────────────────────────────────
+const ADMIN_PIN='2026';
+let adminUnlocked=false;
+let selectedRemoveIdx=null;
+const removalLog=[];
+
+function verifyAdmin(){
+  const pin=['ap0','ap1','ap2','ap3'].map(id=>document.getElementById(id).value).join('');
+  const err=document.getElementById('admin-gate-error');
+  err.classList.remove('show');
+  if(pin!==ADMIN_PIN){err.textContent='Incorrect PIN. Try again.';err.classList.add('show');['ap0','ap1','ap2','ap3'].forEach(id=>document.getElementById(id).value='');document.getElementById('ap0').focus();return;}
+  adminUnlocked=true;
+  document.getElementById('admin-gate').style.display='none';
+  document.getElementById('admin-panel').style.display='block';
+  renderAdminLog();
+}
+
+function lockAdmin(){
+  adminUnlocked=false;
+  ['ap0','ap1','ap2','ap3'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('admin-gate-error').classList.remove('show');
+  document.getElementById('admin-gate').style.display='block';
+  document.getElementById('admin-panel').style.display='none';
+  document.getElementById('rm-first').value='';
+  document.getElementById('rm-last').value='';
+  document.getElementById('admin-search-results').innerHTML='';
+  document.getElementById('admin-remove-form').style.display='none';
+  selectedRemoveIdx=null;
+}
+
+function adminSearch(){
+  const first=document.getElementById('rm-first').value.trim().toLowerCase();
+  const last=document.getElementById('rm-last').value.trim().toLowerCase();
+  const resultsEl=document.getElementById('admin-search-results');
+  document.getElementById('admin-remove-form').style.display='none';
+  selectedRemoveIdx=null;
+  document.getElementById('rm-success').classList.remove('show');
+  document.getElementById('rm-error').classList.remove('show');
+  if(!first&&!last){resultsEl.innerHTML='';return;}
+  const data=loadData();
+  const matches=data.map((p,i)=>({...p,_idx:i})).filter(p=>{
+    const fn=p.first.toLowerCase();
+    const ln=p.last.toLowerCase();
+    return(!first||fn.includes(first))&&(!last||ln.includes(last));
+  });
+  if(!matches.length){resultsEl.innerHTML='<p style="font-size:13px;color:#aaa;padding:8px 0">No matches found.</p>';return;}
+  resultsEl.innerHTML=matches.slice(0,8).map(p=>'<div class="admin-result-row" id="arow-'+p._idx+'" onclick="selectRemove('+p._idx+')"><div class="admin-result-info"><div class="admin-result-name">'+p.first+' '+p.last+'</div><div class="admin-result-meta">'+p.role+' · '+p.dept+(p.city?' · '+p.city:'')+'</div></div><button class="admin-select-btn">Select</button></div>').join('');
+}
+
+function selectRemove(idx){
+  document.querySelectorAll('.admin-result-row').forEach(r=>r.classList.remove('selected'));
+  const row=document.getElementById('arow-'+idx);
+  if(row)row.classList.add('selected');
+  selectedRemoveIdx=idx;
+  const data=loadData();
+  const p=data[idx];
+  document.getElementById('admin-selected-banner').innerHTML='<strong>Selected:</strong> '+p.first+' '+p.last+' — '+p.role+', '+p.dept;
+  document.getElementById('admin-remove-form').style.display='block';
+  document.getElementById('rm-reason').value='';
+  document.getElementById('rm-notes').value='';
+  document.getElementById('rm-success').classList.remove('show');
+  document.getElementById('rm-error').classList.remove('show');
+}
+
+function cancelRemove(){
+  selectedRemoveIdx=null;
+  document.getElementById('admin-remove-form').style.display='none';
+  document.querySelectorAll('.admin-result-row').forEach(r=>r.classList.remove('selected'));
+}
+
+function confirmRemove(){
+  const errEl=document.getElementById('rm-error');
+  errEl.classList.remove('show');
+  if(selectedRemoveIdx===null){errEl.textContent='No user selected.';errEl.classList.add('show');return;}
+  const reason=document.getElementById('rm-reason').value;
+  if(!reason){errEl.textContent='Please select a reason for removal.';errEl.classList.add('show');return;}
+  const notes=document.getElementById('rm-notes').value.trim();
+  const data=loadData();
+  const p=data[selectedRemoveIdx];
+  // Log before removing
+  removalLog.unshift({name:p.first+' '+p.last,role:p.role,dept:p.dept,reason,notes,date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'})});
+  // Remove
+  data.splice(selectedRemoveIdx,1);
+  saveData(data);
+  renderDirectory();
+  // Reset form
+  const succEl=document.getElementById('rm-success');
+  succEl.textContent='✓ '+p.first+' '+p.last+' has been removed from the directory.';
+  succEl.classList.add('show');
+  selectedRemoveIdx=null;
+  document.getElementById('admin-remove-form').style.display='none';
+  document.getElementById('rm-first').value='';
+  document.getElementById('rm-last').value='';
+  document.getElementById('admin-search-results').innerHTML='';
+  document.getElementById('count-badge').textContent=data.length;
+  renderAdminLog();
+}
+
+function renderAdminLog(){
+  const el=document.getElementById('admin-log');
+  if(!removalLog.length){el.innerHTML='<p style="font-size:13px;color:#aaa">No removals recorded yet.</p>';return;}
+  el.innerHTML=removalLog.map(e=>'<div class="log-entry"><div class="log-entry-name">'+e.name+'</div><div class="log-entry-meta">'+e.role+' · '+e.dept+'</div><div class="log-entry-meta" style="margin-top:4px"><strong>Reason:</strong> '+e.reason+(e.notes?' · <em>'+e.notes+'</em>':'')+'</div><div class="log-entry-meta">'+e.date+'</div></div>').join('');
+}
+
+function exportData(){
+  const data=loadData();
+  const headers=['First Name','Last Name','Role','Department','City','Date Joined','Skills','Education & Certifications','Open To','Interests'];
+  const esc=v=>{const s=String(v||'').replace(/"/g,'""');return s.includes(',')||s.includes('"')||s.includes('\n')?'"'+s+'"':s;};
+  const rows=data.map(p=>[
+    p.first,p.last,p.role||'',p.dept||'',p.city||'',p.joined||'',
+    (p.skills||[]).map(s=>typeof s==='object'?s.n+' ('+s.p+')':s).join('; '),
+    (p.edu||[]).map(e=>typeof e==='object'?[e.t,e.s,e.f].filter(Boolean).join(' – '):e).join('; '),
+    (Array.isArray(p.open)?p.open:(p.open?[p.open]:[])).join('; '),
+    (p.interests||[]).join('; ')
+  ].map(esc).join(','));
+  const csv=[headers.map(esc).join(','),...rows].join('\r\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='WEPE_Skills_Directory_'+new Date().toISOString().slice(0,10)+'.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+}
+
+// ── SKILL & EDU BUILDER ──────────────────────────────────────────────────
+window._fSkills=[];window._fEdu=[];
+window._emSkills=[];window._emEdu=[];
+
+function renderEntryList(listId,arr,type){
+  const el=document.getElementById(listId);
+  if(!el)return;
+  if(!arr.length){el.innerHTML='<p style="font-size:12px;color:#bbb;padding:4px 0">None added yet.</p>';return;}
+  el.innerHTML=arr.map((entry,i)=>{
+    if(type==='skill'){
+      const pc=entry.p==='Expert'?'prof-expert':entry.p==='Basic'?'prof-basic':'prof-proficient';
+      return'<div class="entry-pill '+pc+'"><div class="entry-pill-left"><span class="entry-pill-name">'+entry.n+'</span><span class="entry-pill-meta">'+entry.p+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
+    } else {
+      const parts=[entry.type,entry.school,entry.field].filter(Boolean).join(' · ');
+      return'<div class="entry-pill" style="border-left:3px solid #7c3aed"><div class="entry-pill-left"><span class="entry-pill-name">'+entry.school+'</span><span class="entry-pill-meta">'+[entry.type,entry.field].filter(Boolean).join(' · ')+'</span></div><button class="entry-remove" onclick="removeEntry(\''+listId+'\','+i+',\''+type+'\')">×</button></div>';
+    }
+  }).join('');
+}
+
+function removeEntry(listId,idx,type){
+  const prefix=listId.startsWith('em')?'em':'f';
+  const arr=type==='skill'?window['_'+prefix+'Skills']:window['_'+prefix+'Edu'];
+  arr.splice(idx,1);
+  renderEntryList(listId,arr,type);
+}
+
+function addSkillEntry(prefix){
+  const nameEl=document.getElementById(prefix+'-skill-name')||document.getElementById(prefix+'skill-name');
+  const profEl=document.getElementById(prefix+'-skill-prof')||document.getElementById(prefix+'skill-prof');
+  if(!nameEl||!profEl)return;
+  const name=nameEl.value.trim();
+  if(!name)return;
+  const arr=window['_'+prefix+'Skills'];
+  arr.push({n:name,p:profEl.value});
+  nameEl.value='';
+  renderEntryList(prefix+'-skill-list',arr,'skill');
+  nameEl.focus();
+}
+
+function addEduEntry(prefix){
+  const typeEl=document.getElementById(prefix+'-edu-type')||document.getElementById(prefix+'edu-type');
+  const schoolEl=document.getElementById(prefix+'-edu-school')||document.getElementById(prefix+'edu-school');
+  const fieldEl=document.getElementById(prefix+'-edu-field')||document.getElementById(prefix+'edu-field');
+  if(!schoolEl)return;
+  const school=schoolEl.value.trim();
+  if(!school)return;
+  const arr=window['_'+prefix+'Edu'];
+  arr.push({t:typeEl?typeEl.value:'',s:school,f:fieldEl?fieldEl.value.trim():''});
+  if(typeEl)typeEl.value='';
+  schoolEl.value='';
+  if(fieldEl)fieldEl.value='';
+  renderEntryList(prefix+'-edu-list',arr,'edu');
+}
+
+// Allow Enter key to add skill
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&document.activeElement){
+    const id=document.activeElement.id;
+    if(id==='f-skill-name')addSkillEntry('f');
+    else if(id==='em-skill-name')addSkillEntry('em');
+    else if(id==='f-edu-school')addEduEntry('f');
+    else if(id==='em-edu-school')addEduEntry('em');
+  }
+});
+
+function openProfile(idx){
+  const data=loadData();
+  const p=data[idx];
+  if(!p)return;
+  const[bg,fg]=avc(p.first+p.last);
+  const skills=p.skills||[];
+  const edu=p.edu||[];
+  const openArr=Array.isArray(p.open)?p.open:(p.open?[p.open]:[]);
+  const profBadge=lv=>lv==='Expert'?'prof-badge-expert':lv==='Basic'?'prof-badge-basic':'prof-badge-proficient';
+  const eduIcon=t=>t&&t.includes('PhD')?'🎓':t&&(t.includes('MS')||t.includes("Master"))?' 🎓':t&&t.includes('Cert')?'📜':t&&t.includes('Lic')?'📋':'🎓';
+  const skillRows=skills.map(s=>{
+    const name=typeof s==='object'?(s.n||s.name):s;
+    const prof=typeof s==='object'?(s.p||s.prof):'Proficient';
+    return'<div class="profile-skill-row"><span class="profile-skill-name">'+name+'</span><span class="prof-badge '+profBadge(prof)+'">'+prof+'</span></div>';
+  }).join('');
+  const eduRows=edu.map(e=>{
+    if(typeof e==='object'){
+      const t=e.t||e.type||'';const sc=e.s||e.school||'';const f=e.f||e.field||'';
+      return'<div class="profile-edu-row"><div class="profile-edu-icon">'+eduIcon(t)+'</div><div class="profile-edu-info"><div class="edu-degree">'+sc+'</div><div class="edu-detail">'+[t,f].filter(Boolean).join(' · ')+'</div></div></div>';
+    }
+    return'<div class="profile-edu-row"><div class="profile-edu-icon">🎓</div><div class="profile-edu-info"><div class="edu-degree">'+e+'</div></div></div>';
+  }).join('');
+  const openTags=openArr.map(o=>'<span class="tag tag-open">'+o+'</span>').join('');
+  const joined=p.joined?new Date(p.joined).toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'}):'';
+  document.getElementById('profile-modal-content').innerHTML=
+    '<div class="profile-header">'+
+    '<div class="profile-avatar" style="background:'+bg+';color:'+fg+'">'+ini(p.first,p.last)+'</div>'+
+    '<div><div class="profile-name">'+p.first+' '+p.last+'</div>'+
+    '<div class="profile-role">'+p.role+'</div>'+
+    '<div class="profile-dept">'+p.dept+'</div></div></div>'+
+    '<div class="profile-meta-row">'+
+    (p.city?'<div class="profile-meta-item">📍 '+p.city+'</div>':'')+
+    (joined?'<div class="profile-meta-item">📅 Joined '+joined+'</div>':'')+
+    '</div>'+
+    (skillRows?'<div class="profile-section"><div class="profile-section-title">Skills & Proficiency</div>'+skillRows+'</div>':'')+
+    (eduRows?'<div class="profile-section"><div class="profile-section-title">Education & Certifications</div>'+eduRows+'</div>':'')+
+    (openArr.length?'<div class="profile-section"><div class="profile-section-title">Open to</div><div class="open-to-row">'+openTags+'</div></div>':'')+
+    ((p.interests&&p.interests.length)?'<div class="profile-section"><div class="profile-section-title">Interests</div><div class="tag-row">'+p.interests.map(i=>'<span class="tag tag-interest">'+i+'</span>').join('')+'</div></div>':'');
+  document.getElementById('profile-modal').classList.add('show');
+}
+document.getElementById('profile-modal').addEventListener('click',function(e){if(e.target===this)closeModal('profile-modal');});
+
+renderDirectory();
+</script></body></html>
