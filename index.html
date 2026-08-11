@@ -240,11 +240,12 @@ const st=skillArr.slice(0,4).map(s=>{
 }).join('');
 const eduArr=p.edu||[];
 const et=eduArr.slice(0,2).map(e=>{
-  if(typeof e==='object'&&e.s){
-    const label=e.t?'<span class="edu-type-badge">'+e.t.replace("'s Degree",'').replace(' Degree','').replace(' Diploma','').replace('Bachelor','BA').replace('Master','MS').replace('Associate','AS').replace('Doctorate','PhD').replace('Professional License','Lic.').replace('High School','HS')+'</span>':'';
-    return'<span class="tag tag-edu">'+label+e.s+(e.f?' · '+e.f:'')+'</span>';
+  if(typeof e==='object'){
+    const es=e.school||e.s||'';const et2=e.type||e.t||'';const ef=e.field||e.f||'';
+    const label=et2?'<span class="edu-type-badge">'+et2.replace("'s Degree",'').replace(' Degree','').replace(' Diploma','').replace('Bachelor','BA').replace('Master','MS').replace('Associate','AS').replace('Doctorate','PhD').replace('Professional License','Lic.').replace('Certification','Cert.')+'</span>':'';
+    return'<span class="tag tag-edu">'+label+es+(ef?' · '+ef:'')+'</span>';
   }
-  return'<span class="tag tag-edu">'+e+'</span>';
+  return'<span class="tag tag-edu">'+(typeof e==='string'?e:'')+'</span>';
 }).join('');
 const oa=Array.isArray(p.open)?p.open:(p.open?[p.open]:[]);
 const ot=oa.length?'<div class="tag-label">Open to</div><div class="tag-row">'+oa.map(o=>'<span class="tag tag-open">'+o+'</span>').join('')+'</div>':'';
